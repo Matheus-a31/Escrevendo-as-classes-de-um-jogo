@@ -1,22 +1,17 @@
 class Heroi{
+    static tiposDeAtaque = {
+        mago: "magia",
+        guerreiro: "espada",
+        ninja: "shuriken",
+    }
     constructor(nome, idade, tipo ){
         this.nome=nome
         this.idade=idade
-        this.tipo=tipo
+        this.tipo=tipo.toLowerCase()
     }
     atacar(){
-        let ataque=""
-        if (this.tipo.toLowerCase()==="mago"){
-            ataque="magia"
-        }else if(this.tipo.toLowerCase()==="guerreiro"){
-            ataque="espada"
-        }else if(this.tipo.toLowerCase()==="ninja"){
-            ataque="shuriken"
-        }else{
-            ataque="ataque padrão"
-        }
-        console.log(`o ${this.tipo.toLowerCase()} atacou usando ${ataque}`)
-
+        const tiposDeAtaques = Heroi.tiposDeAtaque[this.tipo] || "ataque padrão";
+        console.log(`O ${this.tipo} ${this.nome} atacou usando ${tiposDeAtaques}`);
     }
 }
 
